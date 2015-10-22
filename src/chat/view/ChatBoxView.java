@@ -11,7 +11,7 @@ public class ChatBoxView
 {
 	
 	/**
-	 * 
+	 * Displays a gui popup for collecting user text with the supplied String.
 	 * @param input
 	 * @return
 	 */
@@ -25,7 +25,7 @@ public class ChatBoxView
 		}
 		
 		/**
-		 * 
+		 * Displays a String to the user with a standard popup.
 		 * @param input
 		 */
 	public void displayResponse(String input)
