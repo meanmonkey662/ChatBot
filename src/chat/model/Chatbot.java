@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Base version of the 2015 Chatbot class. Only stub methods are provided. Students will complete methods as part
  * of the project.
  * @author Kyle Koch
- * @version 1.0 10/14/15
+ * @version 1.1 10/23/15 Repaired the getUserName method and initialized the userName in the constructor.
  */
 public class Chatbot
 {
@@ -21,7 +21,7 @@ public class Chatbot
 	 */
 	public Chatbot(String userName)
 	{
-		
+		this.userName = userName;
 	}
 	
 	private void buildMemesList()
@@ -45,13 +45,13 @@ public class Chatbot
 		boolean hasLength = false;
 		if(currentInput != null)
 		{
-			if(currentInput.length() > 0)
+			if(currentInput.length() >= 1)
 			{
 				return true;
 			}
 		}
 		
-		if(currentInput =! null && currentInput.length() > 0)
+		if(currentInput != null && currentInput.length() > 0)
 		{
 			hasLength = true;
 		}
@@ -97,7 +97,7 @@ public class Chatbot
 	 */
 	public String getUserName()
 	{
-		return null;
+		return userName;
 	}
 	
 	/**

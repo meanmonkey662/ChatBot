@@ -6,11 +6,11 @@ package chat.controller;
  * @version 1.0 10/21/15
  * 
  */
-public class ChatBotRunner
+public class ChatRunner
 {
 	public static void main (String[] arg)
 	{
-		ChatBotController myController = new ChatBotController();
+		ChatController myController = new ChatController();
 		myController.start();
 	}
 	
