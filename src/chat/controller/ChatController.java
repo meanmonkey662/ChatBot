@@ -2,7 +2,11 @@ package chat.controller;
 
 import chat.model.Chatbot;
 import chat.view.ChatView;
-
+/**
+ * Controller for the Chatbot project. Keeps popping up.
+ * @author kkoc6943
+ * @version 1.3 
+ */
 public class ChatController
 {
 	private Chatbot simpleBot;
@@ -18,6 +22,16 @@ public class ChatController
 	public void start()
 	{
 		display.displayResponse("Hello " + simpleBot.getUserName());
+		chat();
 	}
 	
+	private void chat()
+	{
+		String textFromUser = display.getAnswer("Talk to the chatbot");
+		while(simpleBot.lengthChecker(textFromUser))
+		{
+			textFromUser = display.getAnswer("wow" + textFromUser);
+		}
+				
+	}
 }
