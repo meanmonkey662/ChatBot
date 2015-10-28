@@ -30,6 +30,12 @@ public class ChatController
 		String textFromUser = display.getAnswer("Talk to the chatbot");
 		while(simpleBot.lengthChecker(textFromUser))
 		{
+			if(simpleBot.contentChecker(textFromUser))
+			{
+				display.displayResponse("Wow, i had no idea you loved " + simpleBot.getContent());
+			}
+			
+			
 			textFromUser = display.getAnswer("wow" + textFromUser);
 		}
 				

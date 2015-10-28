@@ -7,6 +7,7 @@ import java.util.ArrayList;
  * of the project.
  * @author Kyle Koch
  * @version 1.1 10/23/15 Repaired the getUserName method and initialized the userName in the constructor.
+ * Repaired the getContent method. Completed the contentChecker method.
  */
 public class Chatbot
 {
@@ -22,10 +23,27 @@ public class Chatbot
 	public Chatbot(String userName)
 	{
 		this.userName = userName;
+		this.memesList = new ArrayList <String>();
+		this.politicalTopicList = new ArrayList<String>();
+		this.content = "Snowboarding";
+		
+		buildMemesList();
+		buildPoliticalTopicsList();
 	}
 	
 	private void buildMemesList()
 	{
+		this.memesList.add("Doge");
+		this.memesList.add("Done with life Kermit");
+		this.memesList.add("Ladies get in line");
+		this.memesList.add("Cute animals");
+		this.memesList.add("Most interesting man in the world");
+		this.memesList.add("Funny girl");
+		this.memesList.add("Best cry ever");
+		this.memesList.add("Funny squirrel");
+		this.memesList.add("Dexter");
+		this.memesList.add("Funny animal");
+		
 		
 	}
 	
@@ -66,7 +84,15 @@ public class Chatbot
 	 */
 	public boolean contentChecker(String currentInput)
 	{
-		return false;
+		boolean hasContent = false;
+		
+		if(currentInput.contains(content))
+		{
+			hasContent = true;
+		}
+		
+		return hasContent;
+		
 	}
 	
 	/**
@@ -88,6 +114,11 @@ public class Chatbot
 	 */
 	public boolean memeChecker(String currentInput)
 	{
+		boolean hasMemeList = false;
+		if(currentInput.toLowerCase().contains(content.toLowerCase()))
+		{
+			hasMemeList = true;
+		}
 		return false;
 	}
 	
@@ -106,7 +137,7 @@ public class Chatbot
 	 */
 	public String getContent()
 	{
-		return null;
+		return content;
 	}
 	
 	/**
