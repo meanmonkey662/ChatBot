@@ -122,6 +122,58 @@ public class Chatbot
 		return false;
 	}
 	
+	public boolean quitChecker(String currentInput)
+	{
+		boolean quitCheck = false;
+		
+		return quitCheck;
+		
+	}
+	
+	public String processConversation(String currentInput)
+	{
+		String nextConversation = "what else would you like to talk about?";
+		int randomTopic = (int) (Math.random() *5); //Generates a random number between 0 and 4
+		
+		switch (randomTopic)
+		{
+			case 0:
+				if(contentChecker(currentInput))
+				{
+					nextConversation = "hey you talked Snowboarding, that is neat! What else do you like?";
+				}
+				break;
+			case 1:
+				if(memeChecker(currentInput))
+				{
+					nextConversation = "Thats an awesome meme! Wow! What is your favorite food?";
+				}
+				break;
+			case 2:
+				if(politicalTopicChecker(currentInput))
+				{
+					nextConversation = "my favorite is souls, what is your favorite color?";
+				}
+				break;
+			case 3:
+				//Choose your own text here 
+				if(currentInput.length() > 23)
+				{
+					nextConversation = "Thats neat! Where do you live?";
+				}
+				break;
+			case 4:
+				//Random topic for chat here
+				nextConversation = "Hmm, saved.. Where do you sleep?";
+				break;
+			default:
+				//Never will happen!
+				nextConversation = "Okay ;), do you live alone?";
+				break;
+		}
+		return nextConversation;
+	}
+	
 	/**
 	 * Returns the username of this Chatbot instance.
 	 * @return The username of the Chatbot.
