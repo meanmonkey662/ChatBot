@@ -102,7 +102,19 @@ public class Chatbot
 	 * @return Whether the String is contained in the ArrayList.
 	 */
 	public boolean politicalTopicChecker(String currentInput)
-	{
+	{	
+		String nextConversation = "Lets talk politics";
+		int randomTopic = (int) (Math.random() *5);
+		switch(randomTopic)
+		{
+		case 0 :
+			if(politicalTopicChecker(currentInput))
+			{
+				nextConversation = ""
+			}
+		}
+		
+		
 		return false;
 	}
 	
@@ -112,6 +124,8 @@ public class Chatbot
 	 * @param currentInput The supplied String to be checked.
 	 * @return Whether the supplied String is a recognized meme.
 	 */
+	
+	
 	public boolean memeChecker(String currentInput)
 	{
 		boolean hasMemeList = false;
@@ -207,6 +221,7 @@ public class Chatbot
 	 */
 	public ArrayList<String> getPoliticalTopicList()
 	{
+		
 		return null;
 	}
 	
