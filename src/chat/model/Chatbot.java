@@ -110,7 +110,32 @@ public class Chatbot
 		case 0 :
 			if(politicalTopicChecker(currentInput))
 			{
-				nextConversation = ""
+				nextConversation = "Whos your favorite candidate for election for president? Trump, Clinton, Biden, Carson, Rubio, Fiorina or Sanders? ";
+			}
+			break;
+		case 1:
+			if(politicalTopicChecker(currentInput))
+			{
+				nextConversation = "Ahhhhhhhhhhh, Hmm whats your reasoning?";
+			}
+		case 2:
+			if(politicalTopicChecker(currentInput))
+			{
+				nextConversation = "Wow.. That sounds like a load of crap! ";
+			}break;
+		case 3:
+			if(politicalTopicChecker(currentInput))
+			{
+				nextConversation = "yeah.. Suuuure.. Anyways are you democrat, republican, liberal or conservative?";
+			}
+		case 4:
+			if(politicalTopicChecker(currentInput))
+			{
+				nextConversation = "Okay.. i cant talk to you anymore goodbye.";
+			}
+			default:
+			{
+				nextConversation = " Goodbye";
 			}
 		}
 		
@@ -212,7 +237,7 @@ public class Chatbot
 	 */
 	public ArrayList<String> getMemesList()
 	{
-		return null;
+		return politicalTopicList;
 	}
 	
 	/**
