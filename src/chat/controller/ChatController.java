@@ -2,6 +2,7 @@ package chat.controller;
 
 import chat.model.Chatbot;
 import chat.view.ChatView;
+import chat.view.ChatFrame;
 /**
  * Controller for the Chatbot project. Keeps popping up.
  * @author kkoc6943
@@ -11,6 +12,8 @@ public class ChatController
 {
 	private Chatbot simpleBot;
 	private ChatView display;
+	private ChatFrame baseFrame;
+	private Chatbot chatbot;
 	
 	public ChatController()
 	{
@@ -36,4 +39,21 @@ public class ChatController
 		}
 				
 	}
+	
+	public ChatView getChatView()
+	{
+		return display;
+	}
+	
+	public ChatFrame getBaseFrame()
+	{
+		return baseFrame;
+	}
+	
+	public Chatbot getChatbot()
+	{
+		return chatbot;
+	}
+	
+
 }

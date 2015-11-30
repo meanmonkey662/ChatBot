@@ -49,6 +49,13 @@ public class Chatbot
 	
 	private void buildPoliticalTopicsList()
 	{
+		this.politicalTopicList.add("Trump");
+		this.politicalTopicList.add("Clinton");
+		this.politicalTopicList.add("Biden");
+		this.politicalTopicList.add("Carson");
+		this.politicalTopicList.add("Rubio");
+		this.politicalTopicList.add("Fiorina");
+		this.politicalTopicList.add("Sanders");
 		
 	}
 	
@@ -257,5 +264,10 @@ public class Chatbot
 	public void setContent(String content)
 	{
 		
+	}
+	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		return true;
 	}
 }
