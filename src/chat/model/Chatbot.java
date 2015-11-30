@@ -56,6 +56,7 @@ public class Chatbot
 		this.politicalTopicList.add("Rubio");
 		this.politicalTopicList.add("Fiorina");
 		this.politicalTopicList.add("Sanders");
+		this.politicalTopicList.add("Democrat");
 		
 	}
 	

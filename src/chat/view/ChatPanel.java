@@ -65,6 +65,17 @@ import java.awt.Color;
 
 	private void setupListeners()
 	{
-
+		submitButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				setBackground(Color.BLUE);
+			}
+		});
+	}
+	
+	public JTextField getTextField()
+	{
+		return typingField;
 	}
 }

@@ -13,13 +13,12 @@ public class ChatController
 	private Chatbot simpleBot;
 	private ChatView display;
 	private ChatFrame baseFrame;
-	private Chatbot chatbot;
 	
 	public ChatController()
 	{
-		display = new ChatView();
 		String user = display.getAnswer("What is your name?");
 		simpleBot = new Chatbot(user);
+		display = new ChatView();
 	}
 	
 	public void start()
@@ -52,7 +51,7 @@ public class ChatController
 	
 	public Chatbot getChatbot()
 	{
-		return chatbot;
+		return simpleBot;
 	}
 	
 
