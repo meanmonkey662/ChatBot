@@ -1,7 +1,7 @@
 package chat.controller;
 
 import chat.model.Chatbot;
-import chat.view.ChatView;
+import chat.view.*;
 import chat.view.ChatFrame;
 /**
  * Controller for the Chatbot project. Keeps popping up.
@@ -16,15 +16,17 @@ public class ChatController
 	
 	public ChatController()
 	{
+		display = new ChatView();
+		baseFrame = new ChatFrame(this);
 		String user = display.getAnswer("What is your name?");
 		simpleBot = new Chatbot(user);
-		display = new ChatView();
+		
 	}
 	
 	public void start()
 	{
 		display.displayResponse("Hello " + simpleBot.getUserName());
-		chat();
+		//chat();
 	}
 	
 	private void chat()
@@ -37,6 +39,25 @@ public class ChatController
 			textFromUser = display.getAnswer(textFromUser);
 		}
 				
+	}
+	
+	public String fromUserToChatbot(String conversation)
+	{
+		String botResponse = "";
+		
+		if(simpleBot.quitChecker(conversation))
+		{
+			shutDown();
+		}
+		botResponse = simpleBot.processConversation(conversation);
+		
+		return botResponse;
+	}
+	
+	private void shutDown()
+	{
+		display.displayResponse("Goodbye, " + simpleBot.getUserName() + " it has been my pleasureto talk to you");
+		System.exit(0);
 	}
 	
 	public ChatView getChatView()

@@ -57,6 +57,9 @@ public class Chatbot
 		this.politicalTopicList.add("Fiorina");
 		this.politicalTopicList.add("Sanders");
 		this.politicalTopicList.add("Democrat");
+		this.politicalTopicList.add("Republican");
+		this.politicalTopicList.add("Fool");
+		this.politicalTopicList.add("11/4/16");
 		
 	}
 	
@@ -111,46 +114,17 @@ public class Chatbot
 	 */
 	public boolean politicalTopicChecker(String currentInput)
 	{	
-		String nextConversation = "Lets talk politics";
-		int randomTopic = (int) (Math.random() *5);
-		switch(randomTopic)
+		boolean haspoliticalTopicChecker = false;
+		
+		for(String politics : politicalTopicList)
 		{
-		case 0 :
-			if(politicalTopicChecker(currentInput))
+			if(currentInput.toLowerCase().contains(politics.toLowerCase()))
 			{
-				nextConversation = "Whos your favorite candidate for election for president? Trump, Clinton, Biden, Carson, Rubio, Fiorina or Sanders? ";
-			}
-			break;
-		case 1:
-			if(politicalTopicChecker(currentInput))
-			{
-				nextConversation = "Ahhhhhhhhhhh, Hmm whats your reasoning?";
-			}
-		case 2:
-			if(politicalTopicChecker(currentInput))
-			{
-				nextConversation = "Wow.. That sounds like a load of crap! ";
-			}break;
-		case 3:
-			if(politicalTopicChecker(currentInput))
-			{
-				nextConversation = "yeah.. Suuuure.. Anyways are you democrat, republican, liberal or conservative?";
-			}
-		case 4:
-			if(politicalTopicChecker(currentInput))
-			{
-				nextConversation = "Okay.. i cant talk to you anymore goodbye.";
-			}
-			default:
-			{
-				nextConversation = " Goodbye";
+				haspoliticalTopicChecker = true;
 			}
 		}
-		
-		
-		return false;
-	}
-	
+		return haspoliticalTopicChecker;
+	}	
 	
 	/**
 	 * Checks to see that the supplied String value is in the current memesList variable.
@@ -173,14 +147,37 @@ public class Chatbot
 	{
 		boolean quitCheck = false;
 		
+		if(currentInput.equalsIgnoreCase("Quit"))
+		{
+			quitCheck = true;
+		}
+		
 		return quitCheck;
 		
+	}
+	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean isMash = false;
+		
+		if(currentInput.equalsIgnoreCase("sdf") || currentInput.equalsIgnoreCase("dfg") || currentInput.equalsIgnoreCase("cvb") || currentInput.equalsIgnoreCase(",./"))
+		{
+
+			isMash = true;
+
+		}
+		return isMash;
 	}
 	
 	public String processConversation(String currentInput)
 	{
 		String nextConversation = "what else would you like to talk about?";
 		int randomTopic = (int) (Math.random() *5); //Generates a random number between 0 and 4
+		
+		if(keyboardMashChecker(currentInput))
+		{
+			return "Stop mashing the kayboard!!";
+		}
 		
 		switch (randomTopic)
 		{
@@ -245,7 +242,7 @@ public class Chatbot
 	 */
 	public ArrayList<String> getMemesList()
 	{
-		return politicalTopicList;
+		return memesList;
 	}
 	
 	/**
@@ -264,11 +261,7 @@ public class Chatbot
 	 */
 	public void setContent(String content)
 	{
-		
+		this.content = content;
 	}
 	
-	public boolean keyboardMashChecker(String currentInput)
-	{
-		return true;
-	}
 }

@@ -28,7 +28,7 @@ public class ChatView
 		{
 			String userInput = "";
 					
-			userInput = JOptionPane.showInputDialog(null, input, windowMessage, JOptionPane.INFORMATION_MESSAGE, chatIcon, null, "Type here please!").toString();
+			userInput = JOptionPane.showInputDialog(null, input, windowMessage, JOptionPane.INFORMATION_MESSAGE, chatIcon, null, "Type here please!")+ "";
 			
 			return userInput;
 		}
