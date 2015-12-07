@@ -13,7 +13,9 @@ public class ChatController
 	private Chatbot simpleBot;
 	private ChatView display;
 	private ChatFrame baseFrame;
-	
+	/**
+	 * Shows the display
+	 */
 	public ChatController()
 	{
 		display = new ChatView();
@@ -22,13 +24,17 @@ public class ChatController
 		simpleBot = new Chatbot(user);
 		
 	}
-	
+	/**
+	 * show the username and greets them.
+	 */
 	public void start()
 	{
 		display.displayResponse("Hello " + simpleBot.getUserName());
 		//chat();
 	}
-	
+	/**
+	 * shows the botResponse and has a shutdown.
+	 */
 	private void chat()
 	{
 		String textFromUser = display.getAnswer("Talk to the chatbot");
@@ -40,7 +46,11 @@ public class ChatController
 		}
 				
 	}
-	
+	/**
+	 * shows botResponse and has a shutdown
+	 * @param conversation
+	 * @return
+	 */
 	public String fromUserToChatbot(String conversation)
 	{
 		String botResponse = "";
@@ -53,23 +63,34 @@ public class ChatController
 		
 		return botResponse;
 	}
-	
+	/**
+	 * shuts down the program
+	 */
 	private void shutDown()
 	{
 		display.displayResponse("Goodbye, " + simpleBot.getUserName() + " it has been my pleasureto talk to you");
 		System.exit(0);
 	}
-	
+	/**
+	 * getters and setters
+	 * @return
+	 */
 	public ChatView getChatView()
 	{
 		return display;
 	}
-	
+	/**
+	 * getters and setters
+	 * @return
+	 */
 	public ChatFrame getBaseFrame()
 	{
 		return baseFrame;
 	}
-	
+	/**
+	 * getters and setters
+	 * @return
+	 */
 	public Chatbot getChatbot()
 	{
 		return simpleBot;

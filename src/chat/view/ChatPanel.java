@@ -21,7 +21,11 @@ import chat.controller.ChatController;
 
 import java.awt.Color;
 
-
+/**
+ * calls buttons, Jlabel, text area, and controller.
+ * @author kkoc6943
+ *
+ */
 	public class ChatPanel extends JPanel
 	{
 		private ChatController baseController;
@@ -32,7 +36,10 @@ import java.awt.Color;
 		private JTextField typingField;
 		private JLabel promptLabel;
 
-
+/**
+ * sets layout data set
+ * @param baseController
+ */
 	public ChatPanel(ChatController baseController)
 	{
 		this.baseController = baseController;
@@ -48,7 +55,9 @@ import java.awt.Color;
 		setupLayout();
 		setupListeners();
 	}
-
+/**
+ * adds the components to the JPanel
+ */
 	private void setupPanel()
 	{
 		this.setLayout(baseLayout);
@@ -60,7 +69,9 @@ import java.awt.Color;
 		typingField.setToolTipText("Type here");
 		chatArea.setEnabled(false);
 	}
-
+/**
+ * This is where you dump the layout garbage when you arrange components in the builder window.
+ */
 	private void setupLayout()
 	{
 		baseLayout.putConstraint(SpringLayout.NORTH, submitButton_1, 6, SpringLayout.SOUTH, chatArea);
@@ -72,7 +83,9 @@ import java.awt.Color;
 		baseLayout.putConstraint(SpringLayout.WEST, chatArea, 10, SpringLayout.WEST, this);
 		
 	}
-
+/**
+ * sets listeners
+ */
 	private void setupListeners()
 	{
 		submitButton_1.addActionListener(new ActionListener()
@@ -94,7 +107,10 @@ import java.awt.Color;
 			}
 		});
 	}
-	
+	/**
+	 * puts the text field on the Jframe
+	 * @return
+	 */
 	public JTextField getTextField()
 	{
 		return typingField;
