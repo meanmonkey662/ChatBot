@@ -27,6 +27,7 @@ import java.awt.Color;
  */
 	public class ChatPanel extends JPanel
 	{
+		private JButton tweetButton;
 		private ChatController baseController;
 		private JScrollPane textPane;
 		private SpringLayout baseLayout;
@@ -43,15 +44,15 @@ import java.awt.Color;
  */
 	public ChatPanel(ChatController baseController)
 	{
+		baseLayout_1 = new SpringLayout();
+		tweetButton = new JButton("Tweet");
 		baseLayout = new SpringLayout();
 		this.baseController = baseController;
-		chatArea = new JTextArea(10,30);
-		baseLayout_1 = new SpringLayout();
 		submitButton = new JButton("Next");
 		typingField= new JTextField(30);
 		promptLabel = new JLabel("typing to the chatbot oooooff doooommm");
 		submitButton_1 = new JButton("Submit");
-
+		chatArea = new JTextArea();
 		setupChatPane();
 		setupPanel();
 		setupLayout();
@@ -65,7 +66,6 @@ import java.awt.Color;
 		chatArea.setEnabled(false);
 		chatArea.setEditable(false);
 		textPane = new JScrollPane(chatArea);
-		baseLayout_1.putConstraint(SpringLayout.SOUTH, textPane, -20, SpringLayout.SOUTH, this);
 		textPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		textPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
 	}
@@ -82,22 +82,28 @@ import java.awt.Color;
 		this.add(typingField);
 		this.add(submitButton_1);
 		this.add(promptLabel);
+		add(tweetButton);
 		typingField.setToolTipText("Type here");
-		chatArea.setEnabled(false);
+
 	}
 /**
  * This is where you dump the layout garbage when you arrange components in the builder window.
  */
 	private void setupLayout()
 	{
-		baseLayout_1.putConstraint(SpringLayout.NORTH, submitButton_1, 6, SpringLayout.SOUTH, chatArea);
-		baseLayout_1.putConstraint(SpringLayout.WEST, submitButton_1, 77, SpringLayout.WEST, this);
-		baseLayout_1.putConstraint(SpringLayout.EAST, submitButton_1, 333, SpringLayout.WEST, this);
-		baseLayout_1.putConstraint(SpringLayout.WEST, typingField, 0, SpringLayout.WEST, chatArea);
-		baseLayout_1.putConstraint(SpringLayout.SOUTH, typingField, -6, SpringLayout.NORTH, chatArea);
-		baseLayout_1.putConstraint(SpringLayout.NORTH, chatArea, 72, SpringLayout.NORTH, this);
-		baseLayout_1.putConstraint(SpringLayout.WEST, chatArea, 10, SpringLayout.WEST, this);
-		
+		baseLayout_1.putConstraint(SpringLayout.NORTH, submitButton_1, 72, SpringLayout.NORTH, this);
+		baseLayout_1.putConstraint(SpringLayout.SOUTH, typingField, -6, SpringLayout.NORTH, submitButton_1);
+		baseLayout_1.putConstraint(SpringLayout.WEST, submitButton_1, 11, SpringLayout.WEST, this);
+		baseLayout_1.putConstraint(SpringLayout.EAST, submitButton_1, 0, SpringLayout.EAST, typingField);
+		baseLayout_1.putConstraint(SpringLayout.NORTH, chatArea, 6, SpringLayout.SOUTH, submitButton_1);
+		baseLayout_1.putConstraint(SpringLayout.WEST, chatArea, 10, SpringLayout.WEST, submitButton_1);
+		baseLayout_1.putConstraint(SpringLayout.NORTH, textPane, 11, SpringLayout.SOUTH, submitButton_1);
+		baseLayout_1.putConstraint(SpringLayout.SOUTH, textPane, -289, SpringLayout.SOUTH, this);
+		baseLayout_1.putConstraint(SpringLayout.NORTH, promptLabel, 41, SpringLayout.SOUTH, textPane);
+		baseLayout_1.putConstraint(SpringLayout.WEST, textPane, 10, SpringLayout.WEST, submitButton_1);
+		baseLayout_1.putConstraint(SpringLayout.EAST, textPane, -10, SpringLayout.EAST, submitButton_1);
+		baseLayout_1.putConstraint(SpringLayout.EAST, promptLabel, -10, SpringLayout.EAST, this);
+		baseLayout_1.putConstraint(SpringLayout.WEST, typingField, 10, SpringLayout.WEST, this);
 	}
 /**
  * sets listeners
@@ -122,6 +128,15 @@ import java.awt.Color;
 				typingField.setText("");
 			}
 		});
+	
+	tweetButton.addActionListener(new ActionListener()
+	{
+		public void actionPerformed(ActionEvent click)
+		{
+			baseController.sendTweet("ok");
+		}
+	});
+	
 	}
 	/**
 	 * puts the text field on the Jframe

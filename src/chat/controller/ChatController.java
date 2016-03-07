@@ -1,8 +1,8 @@
 package chat.controller;
 
+import chat.model.CTECTwitter;
 import chat.model.Chatbot;
 import chat.view.*;
-import chat.view.ChatFrame;
 /**
  * Controller for the Chatbot project. Keeps popping up.
  * @author kkoc6943
@@ -13,6 +13,7 @@ public class ChatController
 	private Chatbot simpleBot;
 	private ChatView display;
 	private ChatFrame baseFrame;
+	private CTECTwitter myTwitter;
 	/**
 	 * Shows the display
 	 */
@@ -22,6 +23,7 @@ public class ChatController
 		baseFrame = new ChatFrame(this);
 		String user = display.getAnswer("What is your name?");
 		simpleBot = new Chatbot(user);
+		myTwitter = new CTECTwitter(this);
 		
 	}
 	/**
@@ -96,5 +98,14 @@ public class ChatController
 		return simpleBot;
 	}
 	
+	public void handleErrors(String error)
+	{
+		display.displayResponse(error);
+	}
+	
+	public void sendTweet(String tweet)
+	{
+		myTwitter.sendTweet(tweet);
+	}
 
 }
