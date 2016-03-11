@@ -137,6 +137,16 @@ import java.awt.Color;
 		}
 	});
 	
+	analyzeTwitterButton.addActionListener(new ActionListener()
+	{
+		public void actionPerformed(ActionEvent click)
+		{
+			String user = typingField.getText();
+			String results = baseController.analyze(user);
+			chatArea.setText(results);
+		}
+	});
+	
 	}
 	/**
 	 * puts the text field on the Jframe
