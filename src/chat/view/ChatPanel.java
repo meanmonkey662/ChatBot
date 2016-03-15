@@ -37,6 +37,7 @@ import java.awt.Color;
 		private JTextArea chatArea;
 		private JTextField typingField;
 		private JLabel promptLabel;
+		private JButton analyzeTwitterButton;
 
 /**
  * sets layout data set
