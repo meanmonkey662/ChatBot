@@ -1,5 +1,6 @@
 package chat.controller;
 
+import twitter4j.TwitterException;
 import chat.model.CTECTwitter;
 import chat.model.Chatbot;
 import chat.view.*;
@@ -111,6 +112,15 @@ public class ChatController
 	public String analyze(String userName)
 	{
 		String userAnalysis = "The Twitter user " + userName + "has...";
+		try
+		{
+			myTwitter.loadTweets(userName);
+		}
+		catch (TwitterException error)
+		{
+			handleErrors(error.getErrorMessage());
+		}
+		userAnalysis += myTwitter.topResults();
 		
 		return userAnalysis;
 	}
